@@ -1,2 +1,2 @@
 // src/utils/constants.js
-export const BASE_URL = "https://localhost:8000";
+export const BASE_URL = "https://notes-app-backend-f2b4.onrender.com";

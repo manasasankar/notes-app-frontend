@@ -1,19 +1,18 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "frontend/notes-app/package.json",
-        "use": "@vercel/node",
-        "config": {
-          "outputDirectory": "frontend/notes-app/dist"
-        }
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/notes-app/package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "frontend/notes-app/build" 
       }
-    ],
-    "routes": [
-      {
-        "src": "/(.*)",
-        "dest": "/frontend/notes-app/dist/$1"
-      }
-    ]
-  }
-  
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/notes-app/build/$1"  
+    }
+  ]
+}
