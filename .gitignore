@@ -1,1 +1,36 @@
-node_modules/
+# Node.js dependencies
+/node_modules/
+
+# Vite build output
+/dist/
+
+# Logs
+*.log
+
+# Dependency directories
+/pnpm-lock.yaml
+/package-lock.json
+/yarn.lock
+
+# Vercel deployment configuration (if locally generated)
+.vercel/
+
+# .env files (for environment variables)
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# IDE/editor specific files
+.vscode/
+.idea/
+
+# Operating system specific files
+.DS_Store
+Thumbs.db
+
+# NPM packages
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
