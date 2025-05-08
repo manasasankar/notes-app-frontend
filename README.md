@@ -1,12 +1,63 @@
-# React + Vite
+# Notes App 📝
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, user-friendly Notes application built with the MERN stack (MongoDB, Express, React, Node.js). This app allows users to create, edit, delete, and manage their notes. It offers functionality for adding tags, searching through notes, and managing notes in a recycle bin.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- 🆕 **Create Notes**: Easily add new notes with a title and content.
+- ✏️ **Edit Notes**: Modify existing notes by updating the title, content, or tags.
+- 🗑️ **Delete Notes**: Move notes to the Recycle Bin for easy recovery.
+- 🔄 **Restore Notes**: Retrieve notes from the Recycle Bin back to the main list.
+- ❌ **Permanently Delete Notes**: Fully remove notes from the app, making them irretrievable.
+- 🏷️ **Add Tags**: Assign tags to each note for better categorization and easy searching.
+- 🔍 **Search Notes**: Quickly search for notes by title, content, or tags.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+frontend/
+├── src/
+│   ├── assets/               
+│   │   └── Images/
+│   │       ├── add-notes.svg
+│   │       ├── no-data.svg
+│   │       └── react.svg
+│   ├── components/           
+│   │   ├── Cards/
+│   │   │   ├── NoteCard.jsx
+│   │   │   └── ProfileInfo.jsx
+│   │   ├── EmptyCard/
+│   │   │   └── EmptyCard.jsx
+│   │   ├── Input/
+│   │   │   ├── PasswordInput.jsx
+│   │   │   └── TagInput.jsx
+│   │   ├── Navbar/
+│   │   │   └── Navbar.jsx
+│   │   ├── SearchBar/
+│   │   │   └── SearchBar.jsx
+│   │   └── ToastMessage/
+│   │       └── Toast.jsx
+│   ├── pages/               
+│   │   ├── Home/
+│   │   │   ├── AddEditNotes.jsx
+│   │   │   └── Home.jsx
+│   │   ├── Login/
+│   │   │   └── Login.jsx
+│   │   ├── RecycleBin/
+│   │   │   └── RecycleBin.jsx
+│   │   └── SignUp/
+│   │       └── SignUp.jsx
+│   └── utils/                
+│       ├── axiosInstance.js
+│       ├── constants.js
+│       └── helper.js
+├── App.css                  
+├── App.jsx                  
+├── index.css                 
+├── index.html                
+├── main.jsx                 
+├── .eslintrc.cjs            
+├── .gitignore               
+├── postcss.config.js        
+├── tailwind.config.js        
+├── vite.config.js           
+└── README.md                 
