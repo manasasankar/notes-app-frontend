@@ -195,6 +195,7 @@ const Home = () => {
                 }}
                 onPinNote={() => { updateIsPinned(item); }}
                 className="bg-gray-100 border-gray-300 shadow-md" // Minimalist card background
+                searchQuery={searchQuery}
               />
             ))}
           </div>

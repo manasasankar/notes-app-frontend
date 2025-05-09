@@ -3,7 +3,19 @@ import { MdOutlinePushPin } from 'react-icons/md';
 import { MdCreate, MdDelete } from 'react-icons/md';
 import moment from 'moment';
 
-const NoteCard = ({ title, date, content, tags, isPinned, onEdit, onDelete, onPinNote, isDeleted }) => {
+const NoteCard = ({ title, date, content, tags, isPinned, onEdit, onDelete, onPinNote, isDeleted, searchQuery}) => {
+  const highlightText = (text, query) => {
+  if (!query) return text;
+  const parts = text.split(new RegExp(`(${query})`, 'gi'));
+  return parts.map((part, index) =>
+    part.toLowerCase() === query.toLowerCase() ? (
+      <mark key={index} className="bg-yellow-300 rounded px-1">{part}</mark>
+    ) : (
+      part
+    )
+  );
+};
+
   return (
     <div
       className={`border rounded-lg p-4 ${
@@ -14,7 +26,7 @@ const NoteCard = ({ title, date, content, tags, isPinned, onEdit, onDelete, onPi
     >
       <div className="flex items-center justify-between">
         <div>
-          <h6 className="text-lg font-medium text-slate-900">{title}</h6>
+          <h6 className="text-lg font-medium text-slate-900">{highlightText(title, searchQuery)}</h6>
           <span className="text-sm text-slate-500">{moment(date).format('Do MMM YYYY')}</span>
         </div>
 
