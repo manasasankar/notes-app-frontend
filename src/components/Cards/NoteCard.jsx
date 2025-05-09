@@ -17,17 +17,12 @@ const NoteCard = ({ title, date, content, tags, isPinned, onEdit, onDelete, onPi
 };
 
   return (
-    <div
-      className={`border rounded-lg p-4 ${
-        isDeleted ? 'bg-gray-300' : 'bg-white'
-      } hover:shadow-2xl transition-all ease-in-out mx-5 my-6 ${
-        isDeleted ? 'line-through' : ''
-      }`}
-    >
+    <div className={`border rounded-lg p-4 ${isDeleted ? 'bg-gray-300' : 'bg-white'} hover:shadow-2xl transition-all ease-in-out mx-5 my-6 ${isDeleted ? 'line-through' : ''} sm:w-full md:w-96`}>
+
       <div className="flex items-center justify-between">
         <div>
-          <h6 className="text-lg font-medium text-slate-900">{highlightText(title, searchQuery)}</h6>
-          <span className="text-sm text-slate-500">{moment(date).format('Do MMM YYYY')}</span>
+<h6 className="text-lg font-medium text-slate-900 sm:text-base md:text-lg">{highlightText(title, searchQuery)}</h6>
+<span className="text-sm text-slate-500 sm:text-xs md:text-sm">{moment(date).format('Do MMM YYYY')}</span>
         </div>
 
         {/* Conditionally apply color to the pin icon */}
@@ -40,15 +35,12 @@ const NoteCard = ({ title, date, content, tags, isPinned, onEdit, onDelete, onPi
           />
         )}
       </div>
-      <p className="text-sm text-slate-700 mt-2 whitespace-pre-line">
-        {isDeleted
-          ? 'This note has been deleted'
-          : content?.length > 60
-          ? `${content.slice(0, 60)}...`
-          : content}
-      </p>
+       <p className="text-sm text-slate-700 mt-2 whitespace-pre-line sm:text-xs md:text-sm">{isDeleted ? 'This note has been deleted' : content?.length > 60 ? `${content.slice(0, 60)}...` : content}</p>
 
-      <div className="flex items-center justify-between mt-3">
+
+<div className="flex items-center justify-between mt-3 sm:flex-wrap">
+
+
         {tags?.length > 0 ? (
           <div className="text-xs text-gray-500 flex flex-wrap gap-1">
             {tags.map((item, index) => (
