@@ -40,7 +40,8 @@ const NoteCard = ({ title, date, content, tags, isPinned, onEdit, onDelete, onPi
           />
         )}
       </div>
-      <p className="text-sm text-slate-700 mt-2 whitespace-pre-line">
+      <p className="text-sm text-slate-700 mt-2 whitespace-pre-line break-words">
+
         {isDeleted
           ? 'This note has been deleted'
           : content?.length > 60
