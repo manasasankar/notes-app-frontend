@@ -82,20 +82,21 @@ const Home = () => {
   };
 
   const getAllNotes = async () => {
-    setLoading(true); // Set loading to true before fetching
-    try {
-      const response = await axiosInstance.get('/get-all-notes');
-      if (response.data && response.data.notes) {
-        const activeNotes = response.data.notes.filter(note => !note.isDeleted); // Filter non-deleted notes
-        setAllNotes(activeNotes);
-        setFilteredNotes(activeNotes); // Set filtered notes to active notes only
-      }
-    } catch (error) {
-      console.error('An error occurred:', error.message || error);
-    } finally {
-      setLoading(false); // Set loading to false after fetching
+  if (!allNotes.length) setLoading(true); // Show loading only for first fetch
+  try {
+    const response = await axiosInstance.get('/get-all-notes');
+    if (response.data && response.data.notes) {
+      const activeNotes = response.data.notes.filter(note => !note.isDeleted);
+      setAllNotes(activeNotes);
+      setFilteredNotes(activeNotes);
     }
-  };
+  } catch (error) {
+    console.error('An error occurred:', error.message || error);
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   const deleteNote = async (data) => {
     const noteId = data._id;
@@ -174,7 +175,7 @@ const Home = () => {
 
       <div className="container mx-auto">
         {loading ? ( // Show a loading spinner while fetching notes
-          <div className="flex justify-center items-center h-64">
+          <div className="flex justify-center items-center h-64"> 
             <p className="text-gray-500">Loading notes...</p>
           </div>
         ) : filteredNotes.length > 0 ? (
